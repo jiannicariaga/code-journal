@@ -13,7 +13,7 @@ $form.addEventListener('submit', function (event) {
     title: document.querySelector('#title').value,
     photoURL: document.querySelector('#photo-url').value,
     notes: document.querySelector('#notes').value,
-    nextEntryId: data.nextEntryId
+    entryId: data.nextEntryId
   };
 
   data.nextEntryId += 1;
