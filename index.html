@@ -17,20 +17,53 @@
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h3>Code Journal</h3>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form>
-        <h1>New Entry</h1>
-        <img src="images/placeholder-image-square.jpg"><br>
-        <label for="title">Title</label><br>
-        <input type="text" name="title" id="title"><br>
-        <label for="photo-url">Photo URL</label><br>
-        <input type="text" name="photo-url" id="photo-url"><br>
-        <label for="notes">Notes</label><br>
-        <textarea id="notes"></textarea><br>
-        <input type="submit" value="Save">
-      </form>
+    <div class="container" data-view="entry-form">
+      <div class="row">
+        <div class="column-full">
+          <h1>New Entry</h1>
+        </div>
+      </div>
+      <div class="row">
+        <form>
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg">
+            </div>
+            <div class="column-half">
+              <label for="title">Title</label>
+              <div>
+                <input type="text" name="title" id="title">
+              </div>
+              <label for="photo-url">Photo URL</label>
+              <div>
+                <input type="text" name="photo-url" id="photo-url">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <label for="notes">Notes</label>
+              <div>
+                <textarea id="notes"></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full submit">
+              <input type="submit" value="SAVE">
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
