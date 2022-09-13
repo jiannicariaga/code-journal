@@ -17,7 +17,7 @@ $form.addEventListener('submit', function (event) {
   };
 
   data.nextEntryId += 1;
-  data.entries.push(entries);
+  data.entries.push(newEntry);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
 });

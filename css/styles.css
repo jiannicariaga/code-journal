@@ -14,6 +14,10 @@ h3 {
   margin: 0.75rem 0;
 }
 
+[data-view="entry-form"] {
+  display: none;
+}
+
 h1 {
   font-size: 2.6rem;
   font-weight: 600;
@@ -22,6 +26,7 @@ h1 {
 
 img {
   object-fit: cover;
+  border-radius: 4px;
   width: 100%;
   max-height: 300px;
   margin-bottom: 1.25rem;
@@ -67,6 +72,24 @@ textarea {
 
 .save:hover {
   cursor: pointer;
+}
+
+span[data-view="entries"] {
+  font-size: 1.25rem;
+  margin-left: 1rem;
+}
+
+ul {
+  padding-left: 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 768px) {
