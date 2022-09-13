@@ -35,13 +35,16 @@ $form.addEventListener('submit', function (event) {
     notes: document.querySelector('#notes').value,
     entryId: data.nextEntryId
   };
+  var newEntryToPrepend = loadEntry(newEntry);
 
   data.nextEntryId += 1;
   data.entries.push(newEntry);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   data.view = 'entries';
+  $entriesContainer.prepend(newEntryToPrepend);
   $newEntryView.className = 'container new-entry hidden';
+  $noEntries.className = 'no-entries hidden';
   $entriesView.className = 'container entries';
 });
 
