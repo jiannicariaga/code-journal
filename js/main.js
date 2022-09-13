@@ -1,3 +1,4 @@
+// .
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
