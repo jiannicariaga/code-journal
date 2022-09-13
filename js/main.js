@@ -1,3 +1,4 @@
+var $entriesLink = document.querySelector('.nav-entries');
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
@@ -6,6 +7,20 @@ var $noEntries = document.querySelector('.no-entries');
 var $newButton = document.querySelector('.new');
 var $newEntryView = document.querySelector('.new-entry');
 var $entriesView = document.querySelector('.entries');
+
+if (data.view === 'entries') {
+  $newEntryView.className = 'container new-entry hidden';
+  $entriesView.className = 'container entries';
+} else if (data.view === 'new-entry') {
+  $newEntryView.className = 'container new-entry';
+  $entriesView.className = 'container entries hidden';
+}
+
+$entriesLink.addEventListener('click', function (event) {
+  $newEntryView.className = 'container new-entry hidden';
+  $entriesView.className = 'container entries';
+  data.view = 'entries';
+});
 
 $photoURL.addEventListener('input', function (event) {
   $img.setAttribute('src', event.target.value);
@@ -52,6 +67,12 @@ function loadEntry(entry) {
   return row;
 }
 
+$newButton.addEventListener('click', function (event) {
+  $newEntryView.className = 'container new-entry';
+  $entriesView.className = 'container entries hidden';
+  data.view = 'new-entry';
+});
+
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.entries.length) {
     $noEntries.className = 'no-entries hidden';
@@ -60,9 +81,4 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = data.entries.length - 1; i >= 0; i--) {
     $entriesContainer.appendChild(loadEntry(data.entries[i]));
   }
-});
-
-$newButton.addEventListener('click', function (event) {
-  $newEntryView.className = 'container new-entry';
-  $entriesView.className = 'container entries hidden';
 });

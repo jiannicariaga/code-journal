@@ -67,12 +67,14 @@ textarea {
   border: none;
 }
 
-span[data-view="entries"] {
-  font-size: 1.25rem;
+.nav-entries {
+  color: #f0f0f0;
+  font-size: 1rem;
+  text-decoration: none;
   margin-left: 1rem;
 }
 
-.nav-container {
+.new-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
