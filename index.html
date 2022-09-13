@@ -11,6 +11,9 @@
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
@@ -32,38 +35,36 @@
           <h1>New Entry</h1>
         </div>
       </div>
-      <div class="row">
-        <form>
-          <div class="row">
-            <div class="column-half">
-              <img src="images/placeholder-image-square.jpg">
+      <form>
+        <div class="row">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half">
+            <label for="title">Title</label>
+            <div>
+              <input type="text" name="title" id="title" required>
             </div>
-            <div class="column-half">
-              <label for="title">Title</label>
-              <div>
-                <input type="text" name="title" id="title" required>
-              </div>
-              <label for="photo-url">Photo URL</label>
-              <div>
-                <input type="text" name="photo-url" id="photo-url" required>
-              </div>
+            <label for="photo-url">Photo URL</label>
+            <div>
+              <input type="text" name="photo-url" id="photo-url" required>
             </div>
           </div>
-          <div class="row">
-            <div class="column-full">
-              <label for="notes">Notes</label>
-              <div>
-                <textarea id="notes" required></textarea>
-              </div>
+        </div>
+        <div class="row">
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <div>
+              <textarea id="notes" required></textarea>
             </div>
           </div>
-          <div class="row">
-            <div class="column-full submit">
-              <input class="save" type="submit" value="SAVE">
-            </div>
+        </div>
+        <div class="row">
+          <div class="column-full text-align-right">
+            <input class="save" type="submit" value="SAVE">
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   </main>
   <script src="js/data.js"></script>

@@ -1,6 +1,6 @@
 body {
   background-color: #f0f0f0;
-  font-family: sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 header {
@@ -8,45 +8,65 @@ header {
   color: #f0f0f0;
 }
 
+h3 {
+  font-size: 1.75rem;
+  font-weight: 200;
+  margin: 0.75rem 0;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin: 1rem 0;
+}
+
 img {
   object-fit: cover;
   width: 100%;
-  height: 300px;
+  max-height: 300px;
   margin-bottom: 1.25rem;
 }
 
 label {
-  font-weight: bold;
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 input,
 textarea {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.25rem;
   border: 1px solid #bbb;
   border-radius: 4px;
-  padding-left: 0.5rem;
+  padding-left: 0.7rem;
+  padding-right: 0.7rem;
   margin: 0.5rem 0 1.5rem;
 }
 
 input {
-  height: 2.25rem;
+  height: 3rem;
 }
 
 textarea {
-  height: 8rem;
+  height: 12rem;
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
   margin-bottom: 0.5rem;
+  resize: none;
 }
 
-.submit {
-  align-items: flex-end;
-}
-
-.submit input {
+.save {
   background-color: #562b81;
   color: #f0f0f0;
+  font-size: 1.1rem;
   width: auto;
+  height: 2.25rem;
+  padding: 0 1.25rem;
   border: none;
+}
+
+.save:hover {
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
