@@ -17,9 +17,9 @@ if (data.view === 'entries') {
 }
 
 $entriesLink.addEventListener('click', function (event) {
+  data.view = 'entries';
   $newEntryView.className = 'container new-entry hidden';
   $entriesView.className = 'container entries';
-  data.view = 'entries';
 });
 
 $photoURL.addEventListener('input', function (event) {
@@ -40,6 +40,7 @@ $form.addEventListener('submit', function (event) {
   data.entries.push(newEntry);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  data.view = 'entries';
   $newEntryView.className = 'container new-entry hidden';
   $entriesView.className = 'container entries';
 });
@@ -68,9 +69,9 @@ function loadEntry(entry) {
 }
 
 $newButton.addEventListener('click', function (event) {
+  data.view = 'new-entry';
   $newEntryView.className = 'container new-entry';
   $entriesView.className = 'container entries hidden';
-  data.view = 'new-entry';
 });
 
 window.addEventListener('DOMContentLoaded', function (event) {
