@@ -14,10 +14,6 @@ h3 {
   margin: 0.75rem 0;
 }
 
-[data-view="entry-form"] {
-  display: none;
-}
-
 h1 {
   font-size: 2.6rem;
   font-weight: 600;
@@ -71,6 +67,11 @@ textarea {
   border: none;
 }
 
+span[data-view="entries"] {
+  font-size: 1.25rem;
+  margin-left: 1rem;
+}
+
 .nav-container {
   display: flex;
   justify-content: flex-end;
@@ -81,8 +82,7 @@ textarea {
   font-size: 1.2rem;
   text-decoration: none;
   border-radius: 4px;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+  padding: 0.25rem 1.45rem;
   margin-top: 1.6rem;
 }
 
@@ -91,13 +91,14 @@ textarea {
   cursor: pointer;
 }
 
-span[data-view="entries"] {
-  font-size: 1.25rem;
-  margin-left: 1rem;
-}
-
 ul {
   padding-left: 0;
+}
+
+li.no-entries {
+  list-style: none;
+  text-align: center;
+  margin: 2rem 0;
 }
 
 h2 {

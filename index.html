@@ -29,7 +29,7 @@
     </div>
   </header>
   <main>
-    <div class="container" data-view="entry-form">
+    <div class="container new-entry hidden" data-view="entry-form">
       <div class="row">
         <div class="column-full">
           <h1>New Entry</h1>
@@ -66,7 +66,7 @@
         </div>
       </form>
     </div>
-    <div class="container" data-view="entries">
+    <div class="container entries" data-view="entries">
       <div class="row">
         <div class="column-half-nav">
           <h1>Entries</h1>
@@ -77,7 +77,9 @@
           </div>
         </div>
       </div>
-      <ul></ul>
+      <ul>
+        <li class="no-entries">No entries have been recorded.</li>
+      </ul>
     </div>
   </main>
   <script src="js/data.js"></script>

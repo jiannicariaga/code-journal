@@ -2,6 +2,10 @@ var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
 var $form = document.querySelector('form');
 var $entriesContainer = document.querySelector('ul');
+var $noEntries = document.querySelector('.no-entries');
+var $newButton = document.querySelector('.new');
+var $newEntryView = document.querySelector('.new-entry');
+var $entriesView = document.querySelector('.entries');
 
 $photoURL.addEventListener('input', function (event) {
   $img.setAttribute('src', event.target.value);
@@ -21,6 +25,8 @@ $form.addEventListener('submit', function (event) {
   data.entries.push(newEntry);
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
+  $newEntryView.className = 'container new-entry hidden';
+  $entriesView.className = 'container entries';
 });
 
 function loadEntry(entry) {
@@ -47,7 +53,16 @@ function loadEntry(entry) {
 }
 
 window.addEventListener('DOMContentLoaded', function (event) {
-  for (var i = 0; i < data.entries.length; i++) {
+  if (data.entries.length) {
+    $noEntries.className = 'no-entries hidden';
+  }
+
+  for (var i = data.entries.length - 1; i >= 0; i--) {
     $entriesContainer.appendChild(loadEntry(data.entries[i]));
   }
+});
+
+$newButton.addEventListener('click', function (event) {
+  $newEntryView.className = 'container new-entry';
+  $entriesView.className = 'container entries hidden';
 });
