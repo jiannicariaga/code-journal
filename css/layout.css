@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-half-entries {
+  width: 50%;
+}
+
 .text-align-right {
   text-align: right;
 }
@@ -30,6 +34,10 @@
   .column-full,
   .column-half {
     padding: 0 0.75rem;
+  }
+
+  .app-name {
+    padding-left: 0;
   }
 
   .column-half {
