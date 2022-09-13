@@ -60,7 +60,8 @@ textarea {
   resize: none;
 }
 
-.save {
+.save,
+.new {
   background-color: #562b81;
   color: #f0f0f0;
   font-size: 1.1rem;
@@ -70,7 +71,23 @@ textarea {
   border: none;
 }
 
-.save:hover {
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.new {
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 4px;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-top: 1.6rem;
+}
+
+.save:hover,
+.new:hover {
   cursor: pointer;
 }
 

@@ -18,6 +18,10 @@
   width: 100%;
 }
 
+.column-half-nav {
+  width: 50%;
+}
+
 .text-align-right {
   text-align: right;
 }
