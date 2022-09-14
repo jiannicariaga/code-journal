@@ -87,7 +87,7 @@ function loadEntry(entry) {
 
   var edit = document.createElement('span');
   edit.className = 'fa-solid fa-pencil';
-  edit.setAttribute('data-entry-id', data.nextEntryId);
+  edit.setAttribute('data-entry-id', data.nextEntryId - 1);
   thirdRow.appendChild(edit);
 
   var fourthRow = document.createElement('div');
@@ -123,6 +123,9 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
 $allEntries.addEventListener('click', function (event) {
   if (event.target.matches('span')) {
+    var target = event.target.getAttribute('data-entry-id');
+    data.editing = data.entries[target - 1];
+
     $newEntryView.className = 'container new-entry';
     $entriesView.className = 'container entries hidden';
   }
