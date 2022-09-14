@@ -7,6 +7,7 @@ var $noEntries = document.querySelector('.no-entries');
 var $newButton = document.querySelector('.new');
 var $newEntryView = document.querySelector('.new-entry');
 var $entriesView = document.querySelector('.entries');
+var $allEntries = document.querySelector('.all-entries');
 
 if (data.view === 'entries') {
   $newEntryView.className = 'container new-entry hidden';
@@ -50,7 +51,7 @@ $form.addEventListener('submit', function (event) {
 
 function loadEntry(entry) {
   var firstRow = document.createElement('li');
-  firstRow.className = 'row';
+  firstRow.className = 'row entry-container';
 
   var firstColumnHalf = document.createElement('div');
   firstColumnHalf.className = 'column-half';
@@ -117,5 +118,12 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
   for (var i = data.entries.length - 1; i >= 0; i--) {
     $entriesContainer.appendChild(loadEntry(data.entries[i]));
+  }
+});
+
+$allEntries.addEventListener('click', function (event) {
+  if (event.target.matches('span')) {
+    $newEntryView.className = 'container new-entry';
+    $entriesView.className = 'container entries hidden';
   }
 });
