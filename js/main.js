@@ -117,7 +117,7 @@ function loadEntry(entry) {
   secondColumnHalf.appendChild(secondRow);
 
   var thirdColumnHalf = document.createElement('div');
-  thirdColumnHalf.className = 'column-half-mobile';
+  thirdColumnHalf.className = 'column-half-title';
   secondRow.appendChild(thirdColumnHalf);
 
   var h2 = document.createElement('h2');
@@ -125,7 +125,7 @@ function loadEntry(entry) {
   thirdColumnHalf.appendChild(h2);
 
   var fourthColumnHalf = document.createElement('div');
-  fourthColumnHalf.className = 'column-half-mobile';
+  fourthColumnHalf.className = 'column-half-edit';
   secondRow.appendChild(fourthColumnHalf);
 
   var thirdRow = document.createElement('div');

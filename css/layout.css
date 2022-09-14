@@ -18,8 +18,16 @@
   width: 100%;
 }
 
-.column-half-mobile {
+.column-half-header {
   width: 50%;
+}
+
+.column-half-title {
+  width: 80%;
+}
+
+.column-half-edit {
+  width: 20%;
 }
 
 .text-align-right {
