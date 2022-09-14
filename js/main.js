@@ -1,6 +1,8 @@
 var $entriesLink = document.querySelector('.nav-entries');
+var $title = document.querySelector('#title');
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
+var $notes = document.querySelector('#notes');
 var $form = document.querySelector('form');
 var $entriesContainer = document.querySelector('ul');
 var $noEntries = document.querySelector('.no-entries');
@@ -128,5 +130,10 @@ $allEntries.addEventListener('click', function (event) {
 
     $newEntryView.className = 'container new-entry';
     $entriesView.className = 'container entries hidden';
+
+    $title.setAttribute('value', data.editing.title);
+    $photoURL.setAttribute('value', data.editing.photoURL);
+    $img.setAttribute('src', data.editing.photoURL);
+    $notes.textContent = data.editing.notes;
   }
 });
