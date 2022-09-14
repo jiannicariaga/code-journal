@@ -38,6 +38,7 @@ $newButton.addEventListener('click', function (event) {
   $notes.textContent = null;
 });
 
+// FIX LINE 45
 $allEntries.addEventListener('click', function (event) {
   if (event.target.matches('span')) {
     var target = event.target.getAttribute('data-entry-id');
@@ -75,10 +76,11 @@ $form.addEventListener('submit', function (event) {
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === newEntry.entryId) {
         data.entries[i] = newEntry;
-        // $entriesContainer.replaceWith(loadEntry(newEntry));
-        break;
       }
     }
+
+    var oldDomTree = document.querySelector('[data-entry-id=' + CSS.escape(newEntry.entryId) + ']');
+    oldDomTree.replaceWith(loadEntry(newEntry));
   } else {
     data.nextEntryId += 1;
     data.entries.push(newEntry);
@@ -95,6 +97,7 @@ $form.addEventListener('submit', function (event) {
 
 function loadEntry(entry) {
   var firstRow = document.createElement('li');
+  firstRow.setAttribute('data-entry-id', entry.entryId);
   firstRow.className = 'row entry-container';
 
   var firstColumnHalf = document.createElement('div');
