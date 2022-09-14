@@ -49,26 +49,59 @@ $form.addEventListener('submit', function (event) {
 });
 
 function loadEntry(entry) {
-  var row = document.createElement('li');
-  var firstColumnHalf = document.createElement('div');
-  var img = document.createElement('img');
-  var secondColumnHalf = document.createElement('div');
-  var h2 = document.createElement('h2');
-  var p = document.createElement('p');
+  var firstRow = document.createElement('li');
+  firstRow.className = 'row';
 
-  row.className = 'row';
+  var firstColumnHalf = document.createElement('div');
   firstColumnHalf.className = 'column-half';
-  row.appendChild(firstColumnHalf);
+  firstRow.appendChild(firstColumnHalf);
+
+  var img = document.createElement('img');
   img.setAttribute('src', entry.photoURL);
   firstColumnHalf.appendChild(img);
-  secondColumnHalf.className = 'column-half';
-  row.appendChild(secondColumnHalf);
-  h2.textContent = entry.title;
-  secondColumnHalf.appendChild(h2);
-  p.textContent = entry.notes;
-  secondColumnHalf.appendChild(p);
 
-  return row;
+  var secondColumnHalf = document.createElement('div');
+  secondColumnHalf.className = 'column-half';
+  firstRow.appendChild(secondColumnHalf);
+
+  var secondRow = document.createElement('div');
+  secondRow.className = 'row';
+  secondColumnHalf.appendChild(secondRow);
+
+  var thirdColumnHalf = document.createElement('div');
+  thirdColumnHalf.className = 'column-half-mobile';
+  secondRow.appendChild(thirdColumnHalf);
+
+  var h2 = document.createElement('h2');
+  h2.textContent = entry.title;
+  thirdColumnHalf.appendChild(h2);
+
+  var fourthColumnHalf = document.createElement('div');
+  fourthColumnHalf.className = 'column-half-mobile';
+  secondRow.appendChild(fourthColumnHalf);
+
+  var thirdRow = document.createElement('div');
+  thirdRow.className = 'row edit-container';
+  fourthColumnHalf.appendChild(thirdRow);
+
+  var edit = document.createElement('span');
+  edit.className = 'fa-solid fa-pencil';
+  edit.setAttribute('data-entry-id', data.nextEntryId);
+  thirdRow.appendChild(edit);
+
+  var fourthRow = document.createElement('div');
+  fourthRow.className = 'row';
+  secondColumnHalf.appendChild(fourthRow);
+
+  var columnFull = document.createElement('div');
+  columnFull.className = 'column-full';
+  fourthRow.appendChild(columnFull);
+
+  var p = document.createElement('p');
+  p.textContent = entry.notes;
+  columnFull.appendChild(p);
+
+  return firstRow;
 }
 
 $newButton.addEventListener('click', function (event) {
