@@ -1,4 +1,5 @@
 var $entriesLink = document.querySelector('.nav-entries');
+var $view = document.querySelector('.view');
 var $title = document.querySelector('#title');
 var $photoURL = document.querySelector('#photo-url');
 var $img = document.querySelector('img');
@@ -11,7 +12,7 @@ var $newEntryView = document.querySelector('.new-entry');
 var $entriesView = document.querySelector('.entries');
 var $allEntries = document.querySelector('.all-entries');
 
-if (data.view === 'entries') {
+if (data.view === 'entries' || data.view === 'edit-entry') {
   $newEntryView.className = 'container new-entry hidden';
   $entriesView.className = 'container entries';
 } else if (data.view === 'new-entry') {
@@ -23,6 +24,35 @@ $entriesLink.addEventListener('click', function (event) {
   data.view = 'entries';
   $newEntryView.className = 'container new-entry hidden';
   $entriesView.className = 'container entries';
+});
+
+$newButton.addEventListener('click', function (event) {
+  data.view = 'new-entry';
+  $view.textContent = 'New Entry';
+  $newEntryView.className = 'container new-entry';
+  $entriesView.className = 'container entries hidden';
+
+  $title.setAttribute('value', '');
+  $photoURL.setAttribute('value', '');
+  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $notes.textContent = null;
+});
+
+$allEntries.addEventListener('click', function (event) {
+  if (event.target.matches('span')) {
+    var target = event.target.getAttribute('data-entry-id');
+    data.editing = data.entries[target - 1];
+
+    $title.setAttribute('value', data.editing.title);
+    $photoURL.setAttribute('value', data.editing.photoURL);
+    $img.setAttribute('src', data.editing.photoURL);
+    $notes.textContent = data.editing.notes;
+
+    data.view = 'edit-entry';
+    $view.textContent = 'Edit Entry';
+    $newEntryView.className = 'container new-entry';
+    $entriesView.className = 'container entries hidden';
+  }
 });
 
 $photoURL.addEventListener('input', function (event) {
@@ -38,14 +68,26 @@ $form.addEventListener('submit', function (event) {
     notes: document.querySelector('#notes').value,
     entryId: data.nextEntryId
   };
-  var newEntryToPrepend = loadEntry(newEntry);
 
-  data.nextEntryId += 1;
-  data.entries.push(newEntry);
+  if (data.view === 'edit-entry') {
+    newEntry.entryId = data.editing.entryId;
+
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === newEntry.entryId) {
+        data.entries[i] = newEntry;
+        // $entriesContainer.replaceWith(loadEntry(newEntry));
+        break;
+      }
+    }
+  } else {
+    data.nextEntryId += 1;
+    data.entries.push(newEntry);
+    $entriesContainer.prepend(loadEntry(newEntry));
+  }
+
   $img.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   data.view = 'entries';
-  $entriesContainer.prepend(newEntryToPrepend);
   $newEntryView.className = 'container new-entry hidden';
   $noEntries.className = 'no-entries hidden';
   $entriesView.className = 'container entries';
@@ -89,7 +131,7 @@ function loadEntry(entry) {
 
   var edit = document.createElement('span');
   edit.className = 'fa-solid fa-pencil';
-  edit.setAttribute('data-entry-id', data.nextEntryId - 1);
+  edit.setAttribute('data-entry-id', entry.entryId);
   thirdRow.appendChild(edit);
 
   var fourthRow = document.createElement('div');
@@ -107,12 +149,6 @@ function loadEntry(entry) {
   return firstRow;
 }
 
-$newButton.addEventListener('click', function (event) {
-  data.view = 'new-entry';
-  $newEntryView.className = 'container new-entry';
-  $entriesView.className = 'container entries hidden';
-});
-
 window.addEventListener('DOMContentLoaded', function (event) {
   if (data.entries.length) {
     $noEntries.className = 'no-entries hidden';
@@ -121,19 +157,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
   for (var i = data.entries.length - 1; i >= 0; i--) {
     $entriesContainer.appendChild(loadEntry(data.entries[i]));
   }
-});
 
-$allEntries.addEventListener('click', function (event) {
-  if (event.target.matches('span')) {
-    var target = event.target.getAttribute('data-entry-id');
-    data.editing = data.entries[target - 1];
-
-    $newEntryView.className = 'container new-entry';
-    $entriesView.className = 'container entries hidden';
-
-    $title.setAttribute('value', data.editing.title);
-    $photoURL.setAttribute('value', data.editing.photoURL);
-    $img.setAttribute('src', data.editing.photoURL);
-    $notes.textContent = data.editing.notes;
-  }
+  data.editing = null;
 });
