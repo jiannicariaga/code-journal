@@ -18,7 +18,8 @@
   width: 100%;
 }
 
-.column-half-header {
+.column-half-header,
+.column-half-buttons {
   width: 50%;
 }
 
@@ -39,8 +40,12 @@
     max-width: 900px;
   }
 
-  .column-full,
-  .column-half {
+  .column-full {
+    padding: 0;
+  }
+
+  .column-half,
+  .column-half-buttons {
     padding: 0 0.75rem;
   }
 
@@ -50,9 +55,5 @@
 
   .column-half {
     width: 50%;
-  }
-
-  .app-name {
-    padding-left: 0;
   }
 }

@@ -60,11 +60,31 @@
           </div>
         </div>
         <div class="row">
-          <div class="column-full text-align-right">
+          <div class="column-half-buttons">
+            <button class="delete hidden">Delete Entry</button>
+          </div>
+          <div class="column-half-buttons text-align-right">
             <input class="save" type="submit" value="SAVE">
           </div>
         </div>
       </form>
+      <div class="modal-container hidden">
+        <div class="modal">
+          <div class="row">
+            <div class="column-full">
+              <h5>Are you sure you want to delete this entry?</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half-buttons">
+              <button class="cancel">CANCEL</button>
+            </div>
+            <div class="column-half-buttons text-align-right">
+              <button class="confirm">CONFIRM</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="container entries" data-view="entries">
       <div class="row">
