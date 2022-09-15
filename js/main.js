@@ -31,22 +31,23 @@ $newButton.addEventListener('click', function (event) {
   $view.textContent = 'New Entry';
   $newEntryView.className = 'container new-entry';
   $entriesView.className = 'container entries hidden';
-
-  $title.setAttribute('value', '');
-  $photoURL.setAttribute('value', '');
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
   $notes.textContent = null;
 });
 
-// FIX LINE 45
 $allEntries.addEventListener('click', function (event) {
   if (event.target.matches('span')) {
-    var target = event.target.getAttribute('data-entry-id');
-    data.editing = data.entries[target - 1];
+    var entrytoEdit = event.target.getAttribute('data-entry-id');
 
-    $title.setAttribute('value', data.editing.title);
-    $photoURL.setAttribute('value', data.editing.photoURL);
-    $img.setAttribute('src', data.editing.photoURL);
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === parseInt(entrytoEdit)) {
+        data.editing = data.entries[i];
+      }
+    }
+
+    $title.value = data.editing.title;
+    $photoURL.value = data.editing.photoURL;
+    $img.src = data.editing.photoURL;
     $notes.textContent = data.editing.notes;
 
     data.view = 'edit-entry';
@@ -80,6 +81,7 @@ $form.addEventListener('submit', function (event) {
     }
 
     var oldDomTree = document.querySelector('[data-entry-id=' + CSS.escape(newEntry.entryId) + ']');
+
     oldDomTree.replaceWith(loadEntry(newEntry));
   } else {
     data.nextEntryId += 1;
@@ -142,7 +144,7 @@ function loadEntry(entry) {
   secondColumnHalf.appendChild(fourthRow);
 
   var columnFull = document.createElement('div');
-  columnFull.className = 'column-full';
+  columnFull.className = 'column-full-notes';
   fourthRow.appendChild(columnFull);
 
   var p = document.createElement('p');

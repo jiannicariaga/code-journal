@@ -44,11 +44,15 @@
     padding: 0 0.75rem;
   }
 
-  .app-name {
+  .column-full-notes {
     padding-left: 0;
   }
 
   .column-half {
     width: 50%;
+  }
+
+  .app-name {
+    padding-left: 0;
   }
 }
