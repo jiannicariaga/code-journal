@@ -18,7 +18,8 @@
   width: 100%;
 }
 
-.column-half-header {
+.column-half-header,
+.column-half-buttons {
   width: 50%;
 }
 
@@ -39,9 +40,11 @@
     max-width: 900px;
   }
 
+  /* FIX PADDING */
   .column-full,
-  .column-half {
-    padding: 0 0.75rem;
+  .column-half,
+  .column-half-buttons {
+    padding: 0;
   }
 
   .column-full-notes {
@@ -50,9 +53,5 @@
 
   .column-half {
     width: 50%;
-  }
-
-  .app-name {
-    padding-left: 0;
   }
 }
