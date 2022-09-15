@@ -48,7 +48,7 @@ $allEntries.addEventListener('click', function (event) {
     $title.value = data.editing.title;
     $photoURL.value = data.editing.photoURL;
     $img.src = data.editing.photoURL;
-    $notes.textContent = data.editing.notes;
+    $notes.value = data.editing.notes;
 
     data.view = 'edit-entry';
     $view.textContent = 'Edit Entry';
