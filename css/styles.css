@@ -75,9 +75,7 @@ textarea {
 }
 
 .new-container {
-  display: flex;
   justify-content: flex-end;
-  align-items: center;
 }
 
 .new {
@@ -88,8 +86,19 @@ textarea {
   margin-top: 1.6rem;
 }
 
+.edit-container {
+  justify-content: flex-end;
+}
+
+.fa-pencil {
+  color: #562b81;
+  font-size: 1.75rem;
+  margin-top: 0.5rem;
+}
+
 .save:hover,
-.new:hover {
+.new:hover,
+.fa-pencil:hover {
   cursor: pointer;
 }
 

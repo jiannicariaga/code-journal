@@ -32,7 +32,7 @@
     <div class="container new-entry hidden" data-view="entry-form">
       <div class="row">
         <div class="column-full">
-          <h1>New Entry</h1>
+          <h1 class="view">New Entry</h1>
         </div>
       </div>
       <form>
@@ -68,18 +68,20 @@
     </div>
     <div class="container entries" data-view="entries">
       <div class="row">
-        <div class="column-half-entries">
+        <div class="column-half-header">
           <h1>Entries</h1>
         </div>
-        <div class="column-half-entries">
+        <div class="column-half-header">
           <div class="row new-container">
             <a class="new" href="#">NEW</a>
           </div>
         </div>
       </div>
-      <ul>
-        <li class="no-entries">No entries have been recorded.</li>
-      </ul>
+      <div class="all-entries">
+        <ul>
+          <li class="no-entries">No entries have been recorded.</li>
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
