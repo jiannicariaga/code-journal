@@ -89,7 +89,7 @@ $form.addEventListener('submit', function (event) {
     $entriesContainer.prepend(loadEntry(newEntry));
   }
 
-  $img.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $img.src = 'images/placeholder-image-square.jpg';
   $form.reset();
   data.view = 'entries';
   $newEntryView.className = 'container new-entry hidden';
