@@ -35,6 +35,7 @@ label {
 
 input,
 textarea {
+  font-family: sans-serif;
   width: 100%;
   font-size: 1.25rem;
   border: 1px solid #bbb;
@@ -148,6 +149,22 @@ li.no-entries {
   list-style: none;
   text-align: center;
   margin: 2rem 0;
+}
+
+li .column-half:nth-child(odd) {
+  padding-left: 0;
+}
+
+li .column-half:nth-child(even) {
+  padding-right: 0;
+}
+
+.new-entry .column-half:nth-child(odd) {
+  padding-left: 0;
+}
+
+.new-entry .column-half:nth-child(even) {
+  padding-right: 0;
 }
 
 h2 {
